@@ -6,15 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --sb-bg:        #0a0a0a;
-  --sb-bg-dark:   #1a0a2e;
-  --sb-bg-darker: #0d0416;
-  --sb-border:    rgba(138, 43, 226, 0.2);
-  --sb-icon:      #e0e0e0;
-  --sb-text:      #ffffff;
-  --sb-accent:    #8a2be2;
+  --sb-bg:           #0a0a0a;
+  --sb-bg-dark:      #1a0a2e;
+  --sb-bg-darker:    #0d0416;
+  --sb-border:       rgba(138, 43, 226, 0.2);
+  --sb-icon:         #e0e0e0;
+  --sb-text:         #ffffff;
+  --sb-accent:       #8a2be2;
   --sb-accent-hover: #9d4edd;
-  --sb-muted:     #a0a0a0;
+  --sb-muted:        #a0a0a0;
 }
 
 body, p, label, input, button, a, h1, h2, h3,
@@ -25,7 +25,7 @@ div:not([class*="icon"]):not([class*="fa"]):not(.fa):not(.fas):not(.material-ico
 }
 
 /* ============================================================
-   LOGIN
+   LOGIN — FONDO
    ============================================================ */
 .hl_login {
     background-color: #0a0a0a !important;
@@ -40,6 +40,7 @@ div:not([class*="icon"]):not([class*="fa"]):not(.fa):not(.fas):not(.material-ico
     position: relative !important;
 }
 
+/* LOGIN — HEADER */
 .hl_login .hl_login--header {
     position: static !important;
     background: transparent !important;
@@ -50,27 +51,60 @@ div:not([class*="icon"]):not([class*="fa"]):not(.fa):not(.fas):not(.material-ico
     overflow: visible !important;
 }
 
+/* LOGIN — LOGO */
 .hl_login img:not(.hl_login--body img):not(.card img) {
     position: fixed !important;
     top: 35px !important;
     left: 35px !important;
+    bottom: auto !important;
+    right: auto !important;
     max-width: 250px !important;
     max-height: 75px !important;
     margin: 0 !important;
     z-index: 99999 !important;
     filter: none !important;
     object-fit: contain !important;
+    transform: none !important;
 }
 
+/* LOGIN — OCULTAR SELECTOR DE IDIOMA (todos los selectores del original) */
 .hl_login .hl_login--language-selector,
 label.language-label,
+[data-v-a5b84904].language-label,
 select.removeShadow,
+[data-v-a5b84904].removeShadow,
 .hl_login .hl_login--header select,
 .hl_login .hl_login--header label {
     display: none !important;
     visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
 }
 
+/* LOGIN — SPAN DEL HEADER */
+.hl_login .hl_login--header span {
+    position: static !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+}
+
+/* LOGIN — SELECT DEL HEADER (versión visible con estilos) */
+.hl_login .hl_login--header select {
+    position: static !important;
+    background-color: rgba(20, 20, 20, 0.9) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+/* LOGIN — BODY CENTRADO */
 .hl_login .hl_login--body {
     position: fixed !important;
     top: 50% !important;
@@ -80,26 +114,59 @@ select.removeShadow,
     max-width: 480px !important;
     height: auto !important;
     z-index: 1000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
+/* LOGIN — FORM WRAPPER */
+.hl_login .hl_login--form_wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+}
+
+/* LOGIN — CARD */
 .hl_login .card {
     background-color: rgba(20, 20, 20, 0.7) !important;
     backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid var(--sb-border) !important;
     border-radius: 20px !important;
     box-shadow: 0 20px 50px rgba(138, 43, 226, 0.3) !important;
     padding: 35px 45px 25px 45px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
 }
 
+/* LOGIN — CARD BODY */
+.hl_login .card-body {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* LOGIN — TEXTOS */
 .hl_login label,
+.hl_login .control-label,
+.hl_login .form-group label,
 .hl_login p,
 .hl_login a,
-.hl_login span { color: #ffffff !important; }
+.hl_login span,
+.hl_login .text-muted {
+    color: #ffffff !important;
+}
 
+/* LOGIN — TÍTULO */
 .hl_login h2 {
     font-size: 0 !important;
     visibility: hidden !important;
     margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
 }
 .hl_login h2::after {
     content: "Ingresa tus datos";
@@ -110,10 +177,34 @@ select.removeShadow,
     font-weight: 700 !important;
 }
 
+/* LOGIN — FORM GROUPS */
 .hl_login .form-group { margin-bottom: 15px !important; }
 
-.hl_login .divider { display: none !important; }
+/* LOGIN — OCULTAR DIVIDER Y BG-WHITE */
+.hl_login .divider,
+.hl_login .divider hr,
+.hl_login .divider span,
+.hl_login .divider div,
+.hl_login .bg-white {
+    display: none !important;
+    background: transparent !important;
+    border: none !important;
+    color: transparent !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
+/* LOGIN — GOOGLE SIGN IN CONTAINER */
+.hl_login #google-signin-btn-container {
+    margin-top: 25px !important;
+    display: block !important;
+}
+
+/* LOGIN — INPUTS */
 .hl_login .form-control,
 .hl_login input:not([type="radio"]) {
     background-color: rgba(0, 0, 0, 0.5) !important;
@@ -121,14 +212,21 @@ select.removeShadow,
     color: #ffffff !important;
     border-radius: 10px !important;
     height: 48px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-weight: 400 !important;
 }
 .hl_login .form-control:focus {
     border-color: var(--sb-accent) !important;
     box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2) !important;
+    outline: none !important;
 }
 
 .hl_login input::placeholder { color: transparent !important; }
+.hl_login input::-webkit-input-placeholder { color: transparent !important; }
+.hl_login input::-moz-placeholder { color: transparent !important; }
 
+/* LOGIN — BOTÓN SUBMIT */
 .hl_login .btn-primary,
 .hl_login button[type="submit"] {
     background: linear-gradient(135deg, var(--sb-accent), var(--sb-accent-hover)) !important;
@@ -137,7 +235,9 @@ select.removeShadow,
     color: #ffffff !important;
     font-weight: 700 !important;
     height: 50px !important;
-    transition: transform 0.2s ease !important;
+    width: 100% !important;
+    margin-top: 5px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 .hl_login .btn-primary:hover,
 .hl_login button[type="submit"]:hover {
@@ -145,50 +245,115 @@ select.removeShadow,
     box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4) !important;
 }
 
+/* LOGIN — BOTÓN GOOGLE */
 #wl_google_login_button {
     background-color: #ffffff !important;
+    background: #ffffff !important;
     border: 1px solid #dadce0 !important;
     border-radius: 10px !important;
     height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     margin-top: 25px !important;
 }
-#wl_google_login_button span { color: #3c4043 !important; }
+#wl_google_login_button:hover {
+    background-color: #f8f8f8 !important;
+    background: #f8f8f8 !important;
+}
+#wl_google_login_button span,
+#wl_google_login_button i,
+#wl_google_login_button * {
+    color: #3c4043 !important;
+    font-weight: 500 !important;
+}
 
+/* LOGIN — OCULTAR FOOTER */
 .hl_login .powered-by,
 .hl_login .hl_login--footer { display: none !important; }
 
+/* LOGIN — TEXTOS ESPECIALES */
+.hl_login p a,
+.hl_login p strong,
+.hl_login p b {
+    white-space: nowrap !important;
+    color: #ffffff !important;
+}
+
+/* LOGIN — OLVIDÉ CONTRASEÑA */
 #forgot_passowrd_btn {
     font-size: 0 !important;
-    text-align: right !important;
+    text-decoration: none !important;
+    display: block !important;
     margin-top: 5px !important;
+    text-align: right !important;
 }
 #forgot_passowrd_btn::after {
     content: "¿Olvidaste tu contraseña?" !important;
     font-size: 13px !important;
     color: var(--sb-accent) !important;
     visibility: visible !important;
+    font-weight: 500 !important;
+    transition: opacity 0.2s ease !important;
 }
 #forgot_passowrd_btn:hover::after {
+    opacity: 0.8 !important;
     text-decoration: underline !important;
 }
 
+/* LOGIN — RADIO BUTTONS */
 .hl_login .control.radio {
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-start !important;
     background: rgba(138, 43, 226, 0.1) !important;
     border: 1px solid var(--sb-border) !important;
     border-radius: 10px !important;
     padding: 15px !important;
     margin-bottom: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
 }
 .hl_login .control.radio:hover {
     background: rgba(138, 43, 226, 0.15) !important;
     border-color: var(--sb-accent) !important;
 }
 .hl_login .control.radio input[type="radio"] {
+    flex-shrink: 0 !important;
     margin-right: 15px !important;
+    width: 18px !important;
+    height: 18px !important;
     accent-color: var(--sb-accent) !important;
 }
+.hl_login .control.radio span {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+}
+
+/* LOGIN — ALERTAS */
+.hl_login .alert,
+.hl_login [role="alert"],
+.hl_login .notification,
+.hl_login .bg-yellow-100,
+.hl_login .bg-orange-100,
+.hl_login .bg-white.rounded,
+.hl_login .toast,
+.hl_login .alert-warning,
+.hl_login .alert-info { color: #1a1a1a !important; }
+
+.hl_login .alert *,
+.hl_login [role="alert"] *,
+.hl_login .notification *,
+.hl_login .bg-yellow-100 *,
+.hl_login .bg-orange-100 *,
+.hl_login .bg-white.rounded *,
+.hl_login .toast *,
+.hl_login .alert-warning *,
+.hl_login .alert-info * { color: #1a1a1a !important; }
 
 /* ============================================================
    SIDEBAR
@@ -200,11 +365,30 @@ select.removeShadow,
     border-right: 1px solid var(--sb-border) !important;
 }
 
-#sidebar-v2 ::-webkit-scrollbar { width: 6px !important; }
-#sidebar-v2 ::-webkit-scrollbar-track { background: transparent !important; }
-#sidebar-v2 ::-webkit-scrollbar-thumb { background: var(--sb-accent) !important; border-radius: 10px !important; }
-#sidebar-v2 ::-webkit-scrollbar-thumb:hover { background: var(--sb-accent-hover) !important; }
+/* SIDEBAR — SCROLLBARS (sidebar + location switcher + lead-connector) */
+#sidebar-v2 ::-webkit-scrollbar,
+.hl_v2-location_switcher ::-webkit-scrollbar,
+.lead-connector ::-webkit-scrollbar { width: 6px !important; }
 
+#sidebar-v2 ::-webkit-scrollbar:horizontal,
+.hl_v2-location_switcher ::-webkit-scrollbar:horizontal,
+.lead-connector ::-webkit-scrollbar:horizontal { display: none !important; height: 0 !important; }
+
+#sidebar-v2 ::-webkit-scrollbar-track,
+.hl_v2-location_switcher ::-webkit-scrollbar-track,
+.lead-connector ::-webkit-scrollbar-track { background: transparent !important; }
+
+#sidebar-v2 ::-webkit-scrollbar-thumb,
+.hl_v2-location_switcher ::-webkit-scrollbar-thumb,
+.lead-connector ::-webkit-scrollbar-thumb {
+    background: var(--sb-accent) !important;
+    border-radius: 10px !important;
+}
+#sidebar-v2 ::-webkit-scrollbar-thumb:hover,
+.hl_v2-location_switcher ::-webkit-scrollbar-thumb:hover,
+.lead-connector ::-webkit-scrollbar-thumb:hover { background: var(--sb-accent-hover) !important; }
+
+/* SIDEBAR — BACK BUTTON */
 #backButtonv2 {
     background-color: rgba(138, 43, 226, 0.1) !important;
     border: 1px solid var(--sb-border) !important;
@@ -218,10 +402,11 @@ select.removeShadow,
 }
 #backButtonv2 i, #backButtonv2 span {
     color: var(--sb-icon) !important;
-    transition: color 0.3s ease !important;
+    transition: all 0.3s ease !important;
 }
 #backButtonv2:hover i, #backButtonv2:hover span { color: #ffffff !important; }
 
+/* SIDEBAR — MENU TITLE */
 #sidebar-v2 .menu-title {
     color: var(--sb-accent) !important;
     font-weight: 800 !important;
@@ -230,6 +415,7 @@ select.removeShadow,
     margin-bottom: 10px !important;
 }
 
+/* SIDEBAR — LOCATION SWITCHER */
 #location-switcher-sidbar-v2 {
     background-color: rgba(138, 43, 226, 0.08) !important;
     border: 1px solid var(--sb-border) !important;
@@ -239,10 +425,17 @@ select.removeShadow,
 #location-switcher-sidbar-v2:hover {
     background-color: rgba(138, 43, 226, 0.15) !important;
     border-color: var(--sb-accent) !important;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2) !important;
 }
 #location-switcher-sidbar-v2 span,
-#location-switcher-sidbar-v2 div { color: #ffffff !important; }
+#location-switcher-sidbar-v2 p,
+#location-switcher-sidbar-v2 div,
+#location-switcher-sidbar-v2 * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
 
+/* SIDEBAR — NAV LINKS */
 #sidebar-v2 nav a {
     transition: all 0.3s ease !important;
     border-radius: 8px !important;
@@ -251,25 +444,30 @@ select.removeShadow,
 }
 
 #sidebar-v2 nav a span,
-#sidebar-v2 nav a i {
+#sidebar-v2 nav a i,
+#sidebar-v2 nav a img {
+    transition: transform 0.3s ease, color 0.3s ease !important;
     color: var(--sb-icon) !important;
-    transition: all 0.3s ease !important;
 }
 
 #sidebar-v2 nav a:hover {
     background-color: rgba(138, 43, 226, 0.15) !important;
     border-left: 3px solid var(--sb-accent) !important;
+    box-shadow: inset 0 0 12px rgba(138, 43, 226, 0.08), 0 0 0 1px rgba(138, 43, 226, 0.15) !important;
 }
 #sidebar-v2 nav a:hover span,
-#sidebar-v2 nav a:hover i {
-    color: var(--sb-accent) !important;
+#sidebar-v2 nav a:hover i,
+#sidebar-v2 nav a:hover img {
     transform: translateX(4px) !important;
+    color: var(--sb-accent) !important;
 }
 
 #sidebar-v2 nav a.active,
 #sidebar-v2 nav a.exact-active {
     background: rgba(138, 43, 226, 0.2) !important;
     border-left: 3px solid var(--sb-accent) !important;
+    box-shadow: inset 0 0 16px rgba(138, 43, 226, 0.1), 0 0 0 1px rgba(138, 43, 226, 0.2) !important;
+    opacity: 1 !important;
 }
 #sidebar-v2 nav a.active span,
 #sidebar-v2 nav a.exact-active span,
@@ -289,112 +487,314 @@ select.removeShadow,
     box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3) !important;
 }
 
+/* OCULTAR FLECHA DEL TOOLTIP */
+.hl_v2_tip-arrow { display: none !important; }
+
 .hl_v2-location_switcher .search-area input[type="search"] {
     background-color: rgba(138, 43, 226, 0.1) !important;
     border: 1px solid var(--sb-border) !important;
     color: #ffffff !important;
     border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+.hl_v2-location_switcher .search-area input[type="search"]::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
 }
 .hl_v2-location_switcher .search-area input[type="search"]:focus {
     border-color: var(--sb-accent) !important;
+    background-color: rgba(138, 43, 226, 0.08) !important;
+    box-shadow: 0 0 0 1px var(--sb-accent) !important;
+    outline: none !important;
+}
+.hl_v2-location_switcher .search-area svg { color: rgba(255, 255, 255, 0.5) !important; }
+
+/* LISTA DE CUENTAS */
+#location-list-containrer,
+#location-list {
+    background-color: transparent !important;
+    border-radius: 0 0 10px 10px !important;
 }
 
 .hl_swicher-heading {
     color: var(--sb-accent) !important;
     font-weight: 800 !important;
+    letter-spacing: 1px !important;
     border-bottom: 1px solid var(--sb-border) !important;
 }
 
 .hl_account {
+    transition: all 0.3s ease !important;
     border-radius: 8px !important;
     padding: 8px !important;
+    cursor: pointer !important;
     border: 1px solid rgba(138, 43, 226, 0.15) !important;
     margin-bottom: 6px !important;
-    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
 }
 .hl_account:hover {
     background: rgba(138, 43, 226, 0.15) !important;
     border-color: var(--sb-accent) !important;
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.2) !important;
     transform: translateX(4px) !important;
+}
+
+/* CUENTA — CONTENEDOR DE TEXTO */
+.hl_account > div.leading-4 {
+    min-width: 0 !important;
+    flex: 1 !important;
 }
 
 .hl_location-recent,
 .hl_location-title {
     color: #ffffff !important;
     font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
 }
 
+/* CUENTA — TEXTO SECUNDARIO (ciudad / subtítulo) */
+.hl_account span:not(.hl_location-recent):not(.hl_location-title) {
+    color: rgba(255, 255, 255, 0.6) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+/* CUENTA — AVATAR INICIALES */
 .hl_account .bg-gray-200 {
     background-color: rgba(138, 43, 226, 0.2) !important;
     color: #ffffff !important;
     border: 1px solid var(--sb-accent) !important;
+    flex-shrink: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* CUENTA — PIN */
+.hl_pinned-container svg path {
+    fill: var(--sb-accent) !important;
+    opacity: 0.7 !important;
+    transition: all 0.3s ease !important;
+}
+.hl_pinned-container:hover svg path {
+    fill: var(--sb-accent-hover) !important;
+    opacity: 1 !important;
+}
+
+/* CUENTA — COLLAPSE BUTTON */
+.hl_collapse-button {
+    color: var(--sb-accent) !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease !important;
+}
+.hl_collapse-button:hover {
+    color: var(--sb-accent-hover) !important;
+    transform: scale(1.1) !important;
+}
+
+/* SVG OVERRIDE — RECT CON FILL MORADO DE GHL */
+.hl_v2-location_switcher svg rect[fill="#667EEA"],
+svg rect[fill="#667EEA"] { fill: var(--sb-accent) !important; }
+
+.hl_v2-location_switcher div.cursor-pointer.font-medium,
+.hl_v2-location_switcher div.cursor-pointer.font-medium * {
+    color: var(--sb-accent) !important;
 }
 
 /* ============================================================
-   TOPBAR
+   TOPBAR / HEADER
    ============================================================ */
 .hl_header {
     background-color: var(--sb-bg) !important;
     border-bottom: 1px solid var(--sb-border) !important;
 }
 
+/* HEADER — BOTONES REDONDOS */
 .hl_header .btn-circle,
 .hl_header .feedback-toggle-btn,
-.hl_header button.rounded-full {
+.hl_header button.rounded-full,
+.hl_header a[role="button"] {
     background: var(--sb-accent) !important;
+    background-color: var(--sb-accent) !important;
     border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-ring-offset-width: 0px !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
     transition: all 0.3s ease !important;
 }
 
+/* HEADER — HELP ICON */
 #hl_header--help-icon {
     background: transparent !important;
     box-shadow: inset 0 0 0 50px var(--sb-accent) !important;
     border: 2px solid var(--sb-accent) !important;
     border-radius: 50% !important;
+    overflow: hidden !important;
+    outline: none !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
 }
 
-.hl_header .btn-circle i {
+/* HEADER — COPILOT (no afectar su SVG gradiente) */
+#hl_header--copilot-icon {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    outline: none !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
+    transform: none !important;
+}
+
+/* HEADER — ÍCONOS BLANCOS */
+.hl_header .btn-circle:not(#hl_header--copilot-icon) i,
+.hl_header .feedback-toggle-icon,
+.hl_header button.rounded-full svg,
+#hl_header--help-icon i {
+    fill: #ffffff !important;
     color: #ffffff !important;
+    stroke: #ffffff !important;
 }
+.hl_header .btn-circle:not(#hl_header--copilot-icon) > svg { fill: #ffffff !important; color: #ffffff !important; }
+.hl_header .btn-circle:not(#hl_header--copilot-icon) svg path,
+.hl_header button.rounded-full svg path { fill: #ffffff !important; stroke: #ffffff !important; }
+#hl_header--help-icon svg circle { fill: transparent !important; stroke: transparent !important; }
 
-.hl_header .btn-circle:hover {
+/* HEADER — HOVER BOTONES */
+.hl_header .btn-circle:not(#hl_header--copilot-icon):hover,
+.hl_header .feedback-toggle-btn:hover,
+.hl_header button.rounded-full:hover,
+.hl_header a[role="button"]:not(#hl_header--copilot-icon):hover {
     background: var(--sb-accent-hover) !important;
+    background-color: var(--sb-accent-hover) !important;
+    border: none !important;
     transform: translateY(-2px) !important;
 }
-
 #hl_header--help-icon:hover {
     box-shadow: inset 0 0 0 50px var(--sb-accent-hover) !important;
     border-color: var(--sb-accent-hover) !important;
+    transform: translateY(-2px) !important;
 }
 
+/* HEADER — COPILOT ÓVALO (preservar gradiente SVG interno) */
+.hl_header #hl_header--copilot-icon,
+#hl_header--copilot-icon[style],
+.hl_header #hl_header--copilot-icon[style] {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: inset 0 0 0 4px var(--sb-bg) !important;
+    border: none !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    outline: none !important;
+}
+.hl_header #hl_header--copilot-icon svg {
+    color: transparent !important;
+    fill: transparent !important;
+    filter: none !important;
+    overflow: visible !important;
+    display: block !important;
+    background: transparent !important;
+}
+.hl_header #hl_header--copilot-icon svg rect:first-of-type {
+    fill: url(#paint0_linear_9387_167087) !important;
+    stroke: none !important;
+}
+.hl_header #hl_header--copilot-icon svg rect:last-of-type {
+    fill: none !important;
+    stroke: #3E1C96 !important;
+    stroke-opacity: 1 !important;
+}
+.hl_header #hl_header--copilot-icon svg path { fill: #ffffff !important; stroke: none !important; }
+.hl_header #hl_header--copilot-icon:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important;
+    opacity: 0.85 !important;
+}
+
+/* HEADER — BADGE / NOTIFICACIONES */
 .hl_header .Canny_Badge,
-.hl_header .bg-danger {
+.hl_header .bg-danger,
+.hl_header .badge {
     background-color: var(--sb-accent) !important;
+    border: 2px solid var(--sb-bg) !important;
 }
 
+/* HEADER — AVATAR */
+.hl_header .avatar,
+.hl_header .hl_header--avatar {
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+}
 .hl_header .avatar .avatar_img {
     background-color: var(--sb-accent) !important;
     color: #ffffff !important;
+    border-radius: 50% !important;
+    border: none !important;
+    box-shadow: none !important;
     transition: all 0.3s ease !important;
 }
 .hl_header .avatar:hover .avatar_img {
     background-color: var(--sb-accent-hover) !important;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5) !important;
 }
 
 /* ============================================================
-   SCROLLBARS
+   SCROLLBARS DASHBOARD
    ============================================================ */
 #location-dashboard::-webkit-scrollbar,
-.n-scrollbar::-webkit-scrollbar { width: 6px !important; }
+#dashboard-wrapper::-webkit-scrollbar,
+.location-dashboard-wrapper::-webkit-scrollbar,
+.n-scrollbar::-webkit-scrollbar { width: 6px !important; height: 6px !important; }
+
+#location-dashboard::-webkit-scrollbar-track,
+#dashboard-wrapper::-webkit-scrollbar-track,
+.location-dashboard-wrapper::-webkit-scrollbar-track,
+.n-scrollbar::-webkit-scrollbar-track { background: transparent !important; }
+
 #location-dashboard::-webkit-scrollbar-thumb,
-.n-scrollbar::-webkit-scrollbar-thumb { background: var(--sb-accent) !important; border-radius: 10px !important; }
+#dashboard-wrapper::-webkit-scrollbar-thumb,
+.location-dashboard-wrapper::-webkit-scrollbar-thumb,
+.n-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--sb-accent) !important;
+    border-radius: 10px !important;
+}
 #location-dashboard::-webkit-scrollbar-thumb:hover,
+#dashboard-wrapper::-webkit-scrollbar-thumb:hover,
+.location-dashboard-wrapper::-webkit-scrollbar-thumb:hover,
 .n-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--sb-accent-hover) !important; }
 
 /* ============================================================
    PESTAÑAS
    ============================================================ */
-.topmenu-navitem span { color: #ffffff !important; }
+.topmenu-navtitle,
+.topmenu-navitem span { color: #ffffff !important; transition: color 0.3s ease !important; }
 .topmenu-navitem:not(.active):hover span { color: var(--sb-accent) !important; }
 .topmenu-navitem.active { border-bottom-color: var(--sb-accent) !important; }
 .topmenu-navitem.active span { color: var(--sb-accent) !important; }
@@ -412,11 +812,16 @@ select.removeShadow,
 }
 .n-checkbox.n-checkbox--checked .n-checkbox-box .n-checkbox-icon {
     color: var(--sb-accent) !important;
+    fill: var(--sb-accent) !important;
 }
 input[type="checkbox"] { accent-color: var(--sb-accent) !important; }
+input[type="checkbox"]:checked {
+    background-color: #ffffff !important;
+    border-color: var(--sb-accent) !important;
+}
 
 /* ============================================================
-   BOTONES
+   BOTONES NAIVE UI
    ============================================================ */
 .n-button--primary-type {
     background-color: var(--sb-accent) !important;
@@ -428,23 +833,34 @@ input[type="checkbox"] { accent-color: var(--sb-accent) !important; }
 }
 
 /* ============================================================
-   BUSCADOR GLOBAL
+   BUSCADOR GLOBAL Y QUICK ACTIONS
    ============================================================ */
 #globalSearchOpener {
     background-color: rgba(138, 43, 226, 0.1) !important;
     border: 1px solid var(--sb-border) !important;
     border-radius: 8px !important;
+    padding-left: 8px !important;
 }
-#globalSearchOpener .search-placeholder { color: #ffffff !important; }
+#globalSearchOpener .search-placeholder,
+#globalSearchOpener .search-icon { color: #ffffff !important; fill: #ffffff !important; }
+#globalSearchOpener .search-shortcut {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--sb-accent) !important;
+    opacity: 0.8 !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+#globalSearchOpener:hover .search-shortcut {
+    opacity: 1 !important;
+    color: #ffffff !important;
+}
 
 #quickActions {
     background-color: var(--sb-accent) !important;
     border-radius: 8px !important;
+    margin-left: 8px !important;
+    transition: all 0.3s ease !important;
 }
 #quickActions:hover { background-color: var(--sb-accent-hover) !important; }
 #quickActions img, #quickActions span { filter: brightness(0) invert(1) !important; }
-
-/* ============================================================
-   ALERTAS
-   ============================================================ */
-.hl_login .alert { color: #1a1a1a !important; }
